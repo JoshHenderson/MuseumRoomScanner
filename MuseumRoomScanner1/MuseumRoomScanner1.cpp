@@ -9,25 +9,35 @@
 using namespace std;
 
 void readingData(){
-	int lines=1,r=1,v=1,t=1,i=1;
-	char o;
+	string line;
 	ifstream roomdata ("roomdata.txt");
-	roomdata >> lines;
+	if(roomdata.is_open())
+	{
+	getline(roomdata,line);
+	int convertedLine = atoi(line.c_str());
+	string *_stringLine = new string[convertedLine];
+		while(!roomdata.eof()){
+			for(int i=0;i<=convertedLine-1;i++)
+			{
+				getline (roomdata, _stringLine[i]);
+				//cout << _stringLine[i] << endl;
+				//for testing the loop
+			}
 
-	int *room = new int[lines];
-	int *visitor = new int[lines];
-	int *time = new int[lines];
-	char *IO = new char[lines]; 
 
-	while(roomdata>>r>>v>>o>>t)
-		{
-			room[i] = r;
-			visitor[i] = v;
-			IO[i] = o;
-			time[i] = t;
-			cout << "test";
-			i++;
 		}
+	}
+}
+
+void sortingData(){
+	string *_roomNumber = new string[100];
+	string *_visitorNumber = new string[1024];
+	string *_IO = new string[2];
+	string *_timeStayed = new string[1439];
+
+
+
+
 }
 
 int _tmain(int argc, _TCHAR* argv[])
