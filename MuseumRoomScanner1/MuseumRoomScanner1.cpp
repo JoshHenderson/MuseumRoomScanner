@@ -7,6 +7,8 @@
 #include <fstream>
 
 using namespace std;
+int convertedLine;
+string _stringLine[100][15];
 
 void readingData(){
 	string line;
@@ -14,12 +16,11 @@ void readingData(){
 	if(roomdata.is_open())
 	{
 	getline(roomdata,line);
-	int convertedLine = atoi(line.c_str());
-	string *_stringLine = new string[convertedLine];
+	convertedLine = atoi(line.c_str());
 		while(!roomdata.eof()){
 			for(int i=0;i<=convertedLine-1;i++)
 			{
-				getline (roomdata, _stringLine[i]);
+				getline (roomdata, _stringLine[i][0]);
 				//cout << _stringLine[i] << endl;
 				//for testing the loop
 			}
@@ -30,12 +31,24 @@ void readingData(){
 }
 
 void sortingData(){
-	string *_roomNumber = new string[100];
-	string *_visitorNumber = new string[1024];
-	string *_IO = new string[2];
-	string *_timeStayed = new string[1439];
+	string _roomNumber[100][3];
+	string _visitorNumber[1024][4];
+	string _IO[2][3];
+	string _timeStayed[1439][4];
 
+	for(int i=0;i<convertedLine;i++)
+	{
+		for(int j=0;j<15;j++)
+		{
+			while(_stringLine[i][j] != " "){
 
+			_roomNumber[i][j] += _stringLine[i][j];
+			cout << "not sure if working" << endl;
+			//cout << i << endl;
+			//cout << j << endl;
+			}
+		}
+	}
 
 
 }
@@ -44,6 +57,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 	try{
 	readingData();
+	sortingData();
 	}
 	catch (...)
 	{
