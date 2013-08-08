@@ -17,12 +17,18 @@ void readingData(){
 	{
 	getline(roomdata,line);
 	convertedLine = atoi(line.c_str());
+	int *_roomNumber = new int[convertedLine];
+	int *_visitorNumber = new int[convertedLine];
+	string *_IO = new string[convertedLine];
+	int *_timeStayed = new int[convertedLine];
+
+	/*string line2;
+	getline(roomdata,line2);*/
 		while(!roomdata.eof()){
 			for(int i=0;i<=convertedLine-1;i++)
 			{
-				getline (roomdata, _stringLine[i][0]);
-				//cout << _stringLine[i] << endl;
-				//for testing the loop
+			scanf("%d %d %s %d", &_roomNumber, &_visitorNumber, &_IO, &_timeStayed);
+			cout << "test" << endl;
 			}
 
 
@@ -30,7 +36,7 @@ void readingData(){
 	}
 }
 
-void sortingData(){
+/*void sortingData(){
 	string _roomNumber[100][3];
 	string _visitorNumber[1024][4];
 	string _IO[2][3];
@@ -40,7 +46,7 @@ void sortingData(){
 	{
 		for(int j=0;j<15;j++)
 		{
-			while(_stringLine[i][j] != " "){
+			if(_stringLine[i][j] != " "){
 
 			_roomNumber[i][j] += _stringLine[i][j];
 			cout << "not sure if working" << endl;
@@ -51,13 +57,13 @@ void sortingData(){
 	}
 
 
-}
+}*/
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 	try{
 	readingData();
-	sortingData();
+	//sortingData();
 	}
 	catch (...)
 	{
