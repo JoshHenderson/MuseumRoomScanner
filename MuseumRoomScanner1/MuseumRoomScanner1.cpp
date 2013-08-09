@@ -2,33 +2,32 @@
 //
 
 #include "stdafx.h"
+#include <stdio.h>
 #include <string>
 #include <iostream>
 #include <fstream>
 
 using namespace std;
-int convertedLine;
-string _stringLine[100][15];
 
 void readingData(){
-	string line;
+	int line;
 	FILE * roomdata;
-	roomdata = fopen ("roomdata.txt", "r");
+	roomdata = fopen("roomdata.txt", "r");
 	if(roomdata != NULL)
 	{
 	fscanf(roomdata, "%d", line);
-	convertedLine = atoi(line.c_str());
-	int *_roomNumber = new int[convertedLine];
-	int *_visitorNumber = new int[convertedLine];
-	string *_IO = new string[convertedLine];
-	int *_timeStayed = new int[convertedLine];
+	//convertedLine = atoi(line.c_str());
+	int *_roomNumber = new int[line];
+	int *_visitorNumber = new int[line];
+	char *_IO = new char[line];
+	int *_timeStayed = new int[line];
 
 	/*string line2;
 	getline(roomdata,line2);*/
 		while(roomdata != NULL){
-			for(int i=0;i<=convertedLine-1;i++)
+			for(int i=0;i<=line-1;i++)
 			{
-			fscanf(roomdata, "%d %d %s %d", &_roomNumber[i], &_visitorNumber[i], &_IO[i], &_timeStayed[i]);
+			fscanf(roomdata, "%d %d %c %d", &_roomNumber[i], &_visitorNumber[i], &_IO[i], &_timeStayed[i]);
 			cout << "test" << endl;
 			}
 
