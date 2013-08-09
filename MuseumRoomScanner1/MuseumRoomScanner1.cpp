@@ -12,10 +12,11 @@ string _stringLine[100][15];
 
 void readingData(){
 	string line;
-	ifstream roomdata ("roomdata.txt");
-	if(roomdata.is_open())
+	FILE * roomdata;
+	roomdata = fopen ("roomdata.txt", "r");
+	if(roomdata != NULL)
 	{
-	getline(roomdata,line);
+	fscanf(roomdata, "%d", line);
 	convertedLine = atoi(line.c_str());
 	int *_roomNumber = new int[convertedLine];
 	int *_visitorNumber = new int[convertedLine];
@@ -24,10 +25,10 @@ void readingData(){
 
 	/*string line2;
 	getline(roomdata,line2);*/
-		while(!roomdata.eof()){
+		while(roomdata != NULL){
 			for(int i=0;i<=convertedLine-1;i++)
 			{
-			scanf("%d %d %s %d", &_roomNumber, &_visitorNumber, &_IO, &_timeStayed);
+			fscanf(roomdata, "%d %d %s %d", &_roomNumber[i], &_visitorNumber[i], &_IO[i], &_timeStayed[i]);
 			cout << "test" << endl;
 			}
 
